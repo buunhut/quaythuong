@@ -18,6 +18,27 @@ const App = () => {
   };
 
   // ✅ Parse dữ liệu textarea
+  // const parseKhachHangFromTextArea = (text) => {
+  //   const lines = text.trim().split("\n");
+  //   const result = [];
+
+  //   for (const line of lines) {
+  //     const parts = line.trim().split(/\s+/);
+  //     const last = parts[parts.length - 1];
+
+  //     const isPhoneNumber = /^\d{9,}$/.test(last);
+  //     if (!isPhoneNumber) continue;
+
+  //     const soDienThoai = parts.pop();
+  //     const ten = capitalizeWords(parts.join(" "));
+
+  //     if (ten && soDienThoai) {
+  //       result.push({ ten, soDienThoai });
+  //     }
+  //   }
+
+  //   setListKhachHang(result);
+  // };
   const parseKhachHangFromTextArea = (text) => {
     const lines = text.trim().split("\n");
     const result = [];
@@ -26,13 +47,16 @@ const App = () => {
       const parts = line.trim().split(/\s+/);
       const last = parts[parts.length - 1];
 
-      const isPhoneNumber = /^\d{9,}$/.test(last);
-      if (!isPhoneNumber) continue;
+      let soDienThoai = "-";
 
-      const soDienThoai = parts.pop();
+      // Nếu phần cuối là số điện thoại (ít nhất 9 chữ số)
+      if (/^\d{9,}$/.test(last)) {
+        soDienThoai = parts.pop();
+      }
+
       const ten = capitalizeWords(parts.join(" "));
 
-      if (ten && soDienThoai) {
+      if (ten) {
         result.push({ ten, soDienThoai });
       }
     }
