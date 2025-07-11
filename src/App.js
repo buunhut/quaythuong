@@ -136,32 +136,24 @@ const App = () => {
 
       {ketQua && (
         <div className="ketQuaWrap">
-          <div
-            style={{
-              marginTop: "20px",
-              color: "green",
-              fontWeight: "bold",
-            }}
-            className="ketQua"
-          >
-            <p>Ngày: {moment(ky).format("DD/MM/YYYY")}</p>
-            🎊 Khách hàng trúng thưởng{" "}
-            <p style={{ color: "red" }} className="ten">
-              {ketQua.ten}
-
+          <div className="ketQuaCard">
+            <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p>
+            <div className="ketQuaTitle">🎊 Khách hàng trúng thưởng</div>
+            <div className="ketQuaTen">
+              🧑‍💼 {ketQua.ten}
               {ketQua.soDienThoai !== "-" && (
                 <>
-                  -{" "}
+                  –{" "}
                   <a
                     href={`tel:${ketQua.soDienThoai}`}
                     title={`Gọi cho khách hàng ${ketQua.ten}`}
-                    style={{ color: "red" }}
+                    className="soDienThoai"
                   >
-                    {ketQua.soDienThoai}
+                    📞 {ketQua.soDienThoai}
                   </a>
                 </>
               )}
-            </p>
+            </div>
           </div>
         </div>
       )}
