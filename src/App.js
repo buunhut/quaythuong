@@ -137,33 +137,34 @@ const App = () => {
       )}
 
       {ketQua && (
-        <div
-          style={{
-            marginTop: "20px",
-            fontSize: "20px",
-            color: "green",
-            fontWeight: "bold",
-          }}
-          className="ketQua"
-        >
-          <p>Ngày: {moment(ky).format("DD/MM/YYYY")}</p>
-          🎊 Khách hàng trúng thưởng{" "}
-          <p style={{ color: "red" }}>
-            {ketQua.ten}
+        <div className="ketQuaWrap">
+          <div
+            style={{
+              marginTop: "20px",
+              color: "green",
+              fontWeight: "bold",
+            }}
+            className="ketQua"
+          >
+            <p>Ngày: {moment(ky).format("DD/MM/YYYY")}</p>
+            🎊 Khách hàng trúng thưởng{" "}
+            <p style={{ color: "red" }} className="ten">
+              {ketQua.ten}
 
-            {ketQua.soDienThoai !== "-" && (
-              <>
-                -{" "}
-                <a
-                  href={`tel:${ketQua.soDienThoai}`}
-                  title={`Gọi cho khách hàng ${ketQua.ten}`}
-                  style={{ color: "red" }}
-                >
-                  {ketQua.soDienThoai}
-                </a>
-              </>
-            )}
-          </p>
+              {ketQua.soDienThoai !== "-" && (
+                <>
+                  -{" "}
+                  <a
+                    href={`tel:${ketQua.soDienThoai}`}
+                    title={`Gọi cho khách hàng ${ketQua.ten}`}
+                    style={{ color: "red" }}
+                  >
+                    {ketQua.soDienThoai}
+                  </a>
+                </>
+              )}
+            </p>
+          </div>
         </div>
       )}
 

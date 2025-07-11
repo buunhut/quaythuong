@@ -92,127 +92,49 @@ body {
 
         }
 
-        .ketQua {
-            max-width: 360px;
-            border: 1px solid orangered;
-            border-radius: 10px;
+        .ketQuaWrap {
             padding: 10px;
-            margin: 0 auto;
 
-            p {
-                margin: 5px 0;
+            .ketQua {
+                width: 380px;
+                border: 1px solid orangered;
+                border-radius: 10px;
+                padding: 10px;
+                margin: 0 auto;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 
-                a {
-                    text-decoration: none;
+
+                p {
+                    margin: 5px 0;
+                    font-size: 16px;
+
+                    &.ten {
+                        font-size: 20px;
+
+                        a {
+                            text-decoration: none;
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-// #container {
-//     margin: 30px auto;
-//     padding: 20px;
-//     background: #fefefe;
-//     border-radius: 20px;
-//     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-//     font-family: "Segoe UI", sans-serif;
-//     text-align: center;
+@media screen and (max-width: 768px) {
+    body {
+        #container {
 
-//     h1 {
-//         color: #ff4081;
-//         font-size: 32px;
-//         margin-bottom: 20px;
-//         animation: pulse 1.5s infinite;
-//     }
-
-//     form {
-//         padding: 10px;
-
-//         textarea {
-//             width: 100%;
-//             padding: 10px;
-//             height: 200px;
-//             font-size: 16px;
-//             resize: none;
-//         }
-//     }
+            .ketQuaWrap {
+                .ketQua {
+                    width: 100%;
+                }
+            }
 
 
-
-//     button {
-//         margin-top: 10px;
-//         background: #ff4081;
-//         color: white;
-//         padding: 12px 30px;
-//         border: none;
-//         border-radius: 25px;
-//         font-size: 16px;
-//         cursor: pointer;
-//         transition: 0.3s ease;
-
-//         &:hover {
-//             background: #e91e63;
-//         }
-
-//         &:disabled {
-//             background: #ccc;
-//             cursor: not-allowed;
-//         }
-//     }
-
-//     .winner {
-//         margin-top: 20px;
-//         font-size: 22px;
-//         font-weight: bold;
-//         color: #009688;
-
-//         p {
-//             margin-top: 10px;
-//             font-size: 24px;
-//             color: #d32f2f;
-
-//             a {
-//                 color: #d32f2f;
-//                 text-decoration: none;
-//                 font-weight: bold;
-
-//                 &:hover {
-//                     text-decoration: underline;
-//                 }
-//             }
-//         }
-//     }
-
-//     .content {
-//         margin-top: 30px;
-
-//         table {
-//             width: 100%;
-//             border-collapse: collapse;
-//             font-size: 16px;
-
-//             th,
-//             td {
-//                 border: 1px solid #ddd;
-//                 padding: 10px;
-//             }
-
-//             th {
-//                 background-color: #ffebee;
-//                 color: #c2185b;
-//             }
-
-//             tr:nth-child(even) {
-//                 background-color: #f9f9f9;
-//             }
-
-//             tr:hover {
-//                 background-color: #fff3f5;
-//             }
-//         }
-//     }
-// }
+        }
+    }
+}
 
 // Hiệu ứng tiêu đề
 @keyframes pulse {
