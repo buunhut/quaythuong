@@ -93,7 +93,14 @@ body {
         }
 
         .ketQua {
+            max-width: 300px;
+            border: 1px solid orangered;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 auto;
+
             p {
+                margin: 5px 0;
                 a {
                     text-decoration: none;
                 }
