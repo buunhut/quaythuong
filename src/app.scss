@@ -38,25 +38,73 @@ body {
             }
         }
 
-        button {
-            margin-top: 10px;
-            background: #ff4081;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
+        // button {
+        //     margin-top: 10px;
+        //     background: #ff4081;
+        //     color: white;
+        //     padding: 12px 30px;
+        //     border: none;
+        //     border-radius: 25px;
+        //     font-size: 16px;
+        //     cursor: pointer;
+        //     transition: 0.3s ease;
+
+        //     &:hover {
+        //         background: #e91e63;
+        //     }
+
+        //     &:disabled {
+        //         background: #009688;
+        //         color: white;
+        //         cursor: not-allowed;
+        //         animation: pulse 1s infinite;
+
+
+        //     }
+        // }
+        .quay-btn {
+            padding: 10px 20px;
             font-size: 16px;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            // display: inline-flex;
+            // align-items: center;
+            gap: 10px;
             cursor: pointer;
-            transition: 0.3s ease;
+            transition: background-color 0.3s ease;
+        }
 
-            &:hover {
-                background: #e91e63;
-            }
+        .quay-btn:hover:enabled {
+            background-color: #45a049;
+        }
 
-            &:disabled {
-                background: #009688;
-                color: white;
-                cursor: not-allowed;
+        .quay-btn:disabled {
+            background-color: #ff4081;
+            cursor: not-allowed;
+            animation: pulse 1s infinite;
+            font-size: 20px;
+            width: 60px;
+            height: 60px;
+            position: relative;
+
+
+
+
+            .spinner {
+                width: 30px;
+                height: 30px;
+                border: 3px solid #fff;
+                border-top: 3px solid #4CAF50;
+                /* xanh lá đậm cho rõ */
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                // display: inline-block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%); //sao vô giữa
             }
         }
 
@@ -148,5 +196,15 @@ body {
 
     100% {
         transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }

@@ -122,15 +122,13 @@ const App = () => {
       {listKhachHang.length > 0 && (
         <>
           {countdown !== null ? (
-            <button style={{ padding: "10px 20px", fontSize: "16px" }} disabled>
-              Đang quay... {countdown}
+            <button className="quay-btn" disabled>
+              <span className="spinner" />
+              {countdown}
             </button>
           ) : (
-            <button
-              onClick={quaySo}
-              style={{ padding: "10px 20px", fontSize: "16px" }}
-            >
-              Quay số
+            <button className="quay-btn" onClick={quaySo}>
+              🎯 Quay số
             </button>
           )}
         </>
