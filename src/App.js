@@ -144,11 +144,34 @@ const App = () => {
           >
             <thead>
               <tr>
-                <th style={{ border: "1px solid #ddd", padding: "8px" }}>#</th>
-                <th style={{ border: "1px solid #ddd", padding: "8px" }}>
+                <th
+                  style={{
+                    border: "1px solid #009688",
+                    padding: "8px",
+                    backgroundColor: "#009688",
+                    color: "white",
+                  }}
+                >
+                  #
+                </th>
+                <th
+                  style={{
+                    border: "1px solid #009688",
+                    padding: "8px",
+                    backgroundColor: "#009688",
+                    color: "white",
+                  }}
+                >
                   Tên khách hàng
                 </th>
-                <th style={{ border: "1px solid #ddd", padding: "8px" }}>
+                <th
+                  style={{
+                    border: "1px solid #009688",
+                    padding: "8px",
+                    backgroundColor: "#009688",
+                    color: "white",
+                  }}
+                >
                   Số điện thoại
                 </th>
               </tr>
@@ -156,13 +179,31 @@ const App = () => {
             <tbody>
               {listKhachHang.map((item, index) => (
                 <tr key={index}>
-                  <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                  <td
+                    style={{
+                      border: "1px solid #009688",
+                      padding: "8px",
+                      color: "#009688",
+                    }}
+                  >
                     {index + 1}
                   </td>
-                  <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                  <td
+                    style={{
+                      border: "1px solid #009688",
+                      padding: "8px",
+                      color: "#009688",
+                    }}
+                  >
                     {item.ten}
                   </td>
-                  <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                  <td
+                    style={{
+                      border: "1px solid #009688",
+                      padding: "8px",
+                      color: "#009688",
+                    }}
+                  >
                     {item.soDienThoai}
                   </td>
                 </tr>
