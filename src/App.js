@@ -167,7 +167,7 @@ const App = () => {
       )}
 
       {listKhachHang.length > 0 && (
-        <div style={{ marginTop: "20px" }} className="content">
+        <div style={{ marginTop: "10px" }} className="content">
           <table
             style={{
               margin: "auto",
