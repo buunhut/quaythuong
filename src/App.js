@@ -83,7 +83,7 @@ const App = () => {
     }
 
     setKetQua(null); // Ẩn kết quả cũ
-    setCountdown(10); // Bắt đầu từ 10
+    setCountdown(9); // Bắt đầu từ 9
 
     const interval = setInterval(() => {
       setCountdown((prev) => {
