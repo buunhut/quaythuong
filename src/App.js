@@ -113,8 +113,19 @@ const App = () => {
             color: "green",
             fontWeight: "bold",
           }}
+          className="ketQua"
         >
-          🎊 Khách hàng trúng thưởng: {ketQua.ten} - {ketQua.soDienThoai}
+          🎊 Khách hàng trúng thưởng{" "}
+          <p style={{ color: "red" }}>
+            {ketQua.ten} -{" "}
+            <a
+              href={`tel:${ketQua.soDienThoai}`}
+              title={`Gọi cho khách hàng ${ketQua.ten}`}
+              style={{ color: "red" }}
+            >
+              {ketQua.soDienThoai}
+            </a>
+          </p>
         </div>
       )}
 
