@@ -92,17 +92,21 @@ const App = () => {
         />
       </form>
 
-      {countdown !== null ? (
-        <button style={{ padding: "10px 20px", fontSize: "16px" }} disabled>
-          Đang quay... {countdown}
-        </button>
-      ) : (
-        <button
-          onClick={quaySo}
-          style={{ padding: "10px 20px", fontSize: "16px" }}
-        >
-          Quay số
-        </button>
+      {listKhachHang.length > 0 && (
+        <>
+          {countdown !== null ? (
+            <button style={{ padding: "10px 20px", fontSize: "16px" }} disabled>
+              Đang quay... {countdown}
+            </button>
+          ) : (
+            <button
+              onClick={quaySo}
+              style={{ padding: "10px 20px", fontSize: "16px" }}
+            >
+              Quay số
+            </button>
+          )}
+        </>
       )}
 
       {ketQua && (
