@@ -23,6 +23,12 @@ body {
             animation: pulse 1.5s infinite;
         }
 
+        h3 {
+            margin: 10px;
+            color: #009688;
+            animation: pulsex 1.5s infinite;
+        }
+
         form {
             padding: 10px;
 
@@ -227,6 +233,20 @@ body {
 
     100% {
         transform: scale(1);
+    }
+}
+
+@keyframes pulsex {
+    0% {
+        transform: scale(1.2);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
     }
 }
 

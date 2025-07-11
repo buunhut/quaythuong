@@ -109,7 +109,8 @@ const App = () => {
 
   return (
     <div style={{ textAlign: "center" }} id="container">
-      <h1>🎉 QUAY THƯỞNG 🎉</h1>
+      <h1>🎉 GAS KHIÊM 🎉</h1>
+      <h3>🎉 0919 317 710 🎉</h3>
 
       <form action="">
         <textarea
