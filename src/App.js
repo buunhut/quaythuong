@@ -23,27 +23,7 @@ const App = () => {
   };
 
   // ✅ Parse dữ liệu textarea
-  // const parseKhachHangFromTextArea = (text) => {
-  //   const lines = text.trim().split("\n");
-  //   const result = [];
 
-  //   for (const line of lines) {
-  //     const parts = line.trim().split(/\s+/);
-  //     const last = parts[parts.length - 1];
-
-  //     const isPhoneNumber = /^\d{9,}$/.test(last);
-  //     if (!isPhoneNumber) continue;
-
-  //     const soDienThoai = parts.pop();
-  //     const ten = capitalizeWords(parts.join(" "));
-
-  //     if (ten && soDienThoai) {
-  //       result.push({ ten, soDienThoai });
-  //     }
-  //   }
-
-  //   setListKhachHang(result);
-  // };
   const parseKhachHangFromTextArea = (text) => {
     const lines = text.trim().split("\n");
     const result = [];
@@ -75,6 +55,7 @@ const App = () => {
     setTextInput(value);
     localStorage.setItem("textInput", value); // lưu vào localStorage
     parseKhachHangFromTextArea(value);
+    setForm(true);
   };
 
   // ✅ Quay số ngẫu nhiên + đếm ngược
@@ -118,9 +99,21 @@ const App = () => {
       >
         🎉 GAS KHIÊM 🎉
       </h1>
-      <h3>🎉 0919 317 710 🎉</h3>
+      <h3
+        onClick={() => {
+          setTextInput("");
+          localStorage.removeItem("textInput");
+          setListKhachHang([]);
+          setKetQua(null);
+        }}
+      >
+        🎉 0919 317 710 🎉
+      </h3>
 
-      <div className="formWrap" style={{ height: form ? "220px" : 0 }}>
+      <div
+        className="formWrap"
+        style={{ height: form ? "220px" : textInput === "" ? "220px" : 0 }}
+      >
         <form action="">
           <textarea
             placeholder="Nhập Tên Số Điện Thoại (ví dụ: Trương Bửu Lập 0905123456)"
