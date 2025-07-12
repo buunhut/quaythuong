@@ -18,7 +18,7 @@ body {
 
 
         h1 {
-            margin: 10px;
+            margin: 0 10px 10px 10px;
             color: #ff4081;
             animation: pulse 1.5s infinite;
             cursor: pointer;
@@ -38,6 +38,7 @@ body {
             margin-bottom: 10px;
             overflow: hidden;
             transition: all .3s;
+            border-radius: 10px;
 
 
 

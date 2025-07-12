@@ -37,6 +37,7 @@ const App = () => {
       lt: "Láng Tròn",
       vma: "Vĩnh Mỹ A",
       vmb: "Vĩnh Mỹ B",
+      a: "Anh",
     };
 
     // Tạo regex bắt các từ bất kể viết hoa/thường
@@ -180,6 +181,7 @@ const App = () => {
           <div className="ketQuaCard">
             <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p>
             <div className="ketQuaTitle">🎊 Khách hàng trúng thưởng</div>
+
             <div className="ketQuaTen">
               🧑‍💼 {replaceShortCodes(ketQua.ten)}
               {ketQua.soDienThoai !== "-" && (
