@@ -155,7 +155,7 @@ const App = () => {
       >
         <form action="">
           <textarea
-            placeholder="Nhập Tên Số Điện Thoại (ví dụ: Trương Bửu Lập 0905123456)"
+            placeholder="Nhập Tên khách hàng"
             value={textInput}
             onChange={handleTextareaChange}
           />
@@ -233,7 +233,7 @@ const App = () => {
                 >
                   Tên khách hàng
                 </th>
-                <th
+                {/* <th
                   style={{
                     border: "1px solid #009688",
                     padding: "8px",
@@ -242,7 +242,7 @@ const App = () => {
                   }}
                 >
                   Số điện thoại
-                </th>
+                </th> */}
               </tr>
             </thead>
             <tbody>
@@ -272,7 +272,7 @@ const App = () => {
                   >
                     {replaceShortCodes(item.ten)}
                   </td>
-                  <td
+                  {/* <td
                     style={{
                       // border: "1px solid #009688",
                       padding: "10px 8px",
@@ -280,7 +280,7 @@ const App = () => {
                     }}
                   >
                     {item.soDienThoai}
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>
