@@ -198,6 +198,7 @@ const App = () => {
                 </>
               )}
             </div>
+            <input type="text" placeholder="Gõ Số điện thoại" />
           </div>
         </div>
       )}

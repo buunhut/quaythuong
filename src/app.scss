@@ -213,6 +213,21 @@ body {
                     margin-bottom: 10px;
                     font-weight: 500;
                 }
+
+                input {
+                    margin-top: 4px;
+                    outline: none;
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: #ff4081;
+                    text-align: center;
+                    border: 1px solid transparent;
+
+                    &::placeholder {
+                        color: silver;
+                        font-weight: 200;
+                    }
+                }
             }
         }
     }
