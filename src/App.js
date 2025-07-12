@@ -151,18 +151,20 @@ const App = () => {
 
       <div
         className="formWrap"
-        style={{ height: form ? "220px" : textInput === "" ? "220px" : 0 }}
+        style={{
+          height: ketQua ? 0 : form ? "220px" : textInput === "" ? "220px" : 0,
+        }}
       >
         <form action="">
           <textarea
-            placeholder="Nhập Tên khách hàng"
+            placeholder="Tên khách hàng"
             value={textInput}
             onChange={handleTextareaChange}
           />
         </form>
       </div>
 
-      {listKhachHang.length > 0 && (
+      {listKhachHang.length > 0 && !ketQua && (
         <>
           {countdown !== null ? (
             <button className="quay-btn" disabled>
@@ -171,7 +173,7 @@ const App = () => {
             </button>
           ) : (
             <button className="quay-btn" onClick={quaySo}>
-              🎯 Quay số
+              🎯 Quay thưởng
             </button>
           )}
         </>
@@ -203,7 +205,7 @@ const App = () => {
         </div>
       )}
 
-      {listKhachHang.length > 0 && (
+      {listKhachHang.length > 0 && !ketQua && (
         <div style={{ marginTop: "10px" }} className="content">
           <table
             style={{
