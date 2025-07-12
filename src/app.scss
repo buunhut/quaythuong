@@ -21,6 +21,7 @@ body {
             margin: 10px;
             color: #ff4081;
             animation: pulse 1.5s infinite;
+            cursor: pointer;
         }
 
         h3 {
@@ -29,18 +30,28 @@ body {
             animation: pulsex 1.5s infinite;
         }
 
-        form {
-            padding: 10px;
+        .formWrap {
+            // padding: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: all .3s;
 
-            textarea {
-                width: 100%;
+
+
+            form {
                 padding: 10px;
-                height: 200px;
-                font-size: 16px;
-                resize: none;
-                border-radius: 5px;
-                border: 1px solid #e91e63;
-                color: #e91e63;
+
+                textarea {
+                    width: 100%;
+                    padding: 10px;
+                    height: 200px;
+                    font-size: 16px;
+                    resize: none;
+                    border-radius: 5px;
+                    border: 1px solid #e91e63;
+                    color: #e91e63;
+                }
             }
         }
 
@@ -118,7 +129,7 @@ body {
 
 
         .content {
-            padding: 10px;
+            // padding: 10px;
 
             table {
                 width: 100%;
@@ -151,7 +162,7 @@ body {
         .ketQuaWrap {
             display: flex;
             justify-content: center;
-            margin-top: 30px;
+            margin: 30px auto;
 
 
             .ketQuaCard {

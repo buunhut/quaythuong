@@ -8,6 +8,8 @@ const App = () => {
   const [textInput, setTextInput] = useState("");
   const [countdown, setCountdown] = useState(null); // Đếm ngược
 
+  const [form, setForm] = useState(false);
+
   const [ky, setKy] = useState(new Date());
 
   // ✅ Viết hoa chữ cái đầu mỗi từ
@@ -109,16 +111,24 @@ const App = () => {
 
   return (
     <div style={{ textAlign: "center" }} id="container">
-      <h1>🎉 GAS KHIÊM 🎉</h1>
+      <h1
+        onClick={() => {
+          setForm(!form);
+        }}
+      >
+        🎉 GAS KHIÊM 🎉
+      </h1>
       <h3>🎉 0919 317 710 🎉</h3>
 
-      <form action="">
-        <textarea
-          placeholder="Nhập Tên Số Điện Thoại (ví dụ: Trương Bửu Lập 0905123456)"
-          value={textInput}
-          onChange={handleTextareaChange}
-        />
-      </form>
+      <div className="formWrap" style={{ height: form ? "220px" : 0 }}>
+        <form action="">
+          <textarea
+            placeholder="Nhập Tên Số Điện Thoại (ví dụ: Trương Bửu Lập 0905123456)"
+            value={textInput}
+            onChange={handleTextareaChange}
+          />
+        </form>
+      </div>
 
       {listKhachHang.length > 0 && (
         <>
