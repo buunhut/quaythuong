@@ -91,7 +91,7 @@ const App = () => {
   const handleTextareaChange = (e) => {
     const value = e.target.value;
     setTextInput(value);
-    localStorage.setItem("textInput", value); // lưu vào localStorage
+    // localStorage.setItem("textInput", value); // lưu vào localStorage
     parseKhachHangFromTextArea(value);
     setForm(true);
   };
@@ -121,11 +121,12 @@ const App = () => {
 
   // ✅ Khởi động: lấy từ localStorage
   useEffect(() => {
-    const savedText = localStorage.getItem("textInput");
-    if (savedText) {
-      setTextInput(savedText);
-      parseKhachHangFromTextArea(savedText);
-    }
+    // const savedText = localStorage.getItem("textInput");
+    // if (savedText) {
+    //   setTextInput(savedText);
+    //   parseKhachHangFromTextArea(savedText);
+    // }
+    localStorage.removeItem("textInput");
   }, []);
 
   return (
