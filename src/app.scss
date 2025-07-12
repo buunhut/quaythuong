@@ -139,13 +139,12 @@ body {
 
                 th,
                 td {
-                    // border: 1px solid #ddd;
                     padding: 10px;
+                    font-weight: 500;
                 }
 
                 th {
                     background-color: #ffebee;
-                    color: #c2185b;
                 }
 
                 tr:nth-child(even) {

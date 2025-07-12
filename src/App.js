@@ -214,30 +214,36 @@ const App = () => {
             </thead>
             <tbody>
               {listKhachHang.map((item, index) => (
-                <tr key={index}>
+                <tr
+                  key={index}
+                  style={{
+                    backgroundColor: item.ten === ketQua?.ten ? "#ff4081" : "",
+                  }}
+                >
                   <td
                     style={{
-                      border: "1px solid #009688",
-                      padding: "8px",
-                      color: "#009688",
+                      // border: "1px solid #009688",
+                      padding: "10px 8px",
+                      color: item.ten === ketQua?.ten ? "white" : "#009688",
                     }}
                   >
                     {index + 1}
                   </td>
                   <td
                     style={{
-                      border: "1px solid #009688",
-                      padding: "8px",
-                      color: "#009688",
+                      // border: "1px solid #009688",
+                      padding: "10px 8px",
+                      color: item.ten === ketQua?.ten ? "white" : "#009688",
+                      textAlign: "left",
                     }}
                   >
                     {item.ten}
                   </td>
                   <td
                     style={{
-                      border: "1px solid #009688",
-                      padding: "8px",
-                      color: "#009688",
+                      // border: "1px solid #009688",
+                      padding: "10px 8px",
+                      color: item.ten === ketQua?.ten ? "white" : "#009688",
                     }}
                   >
                     {item.soDienThoai}
