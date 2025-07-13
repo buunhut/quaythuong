@@ -6,7 +6,7 @@
 }
 
 body {
-    // padding: 10px 5px;
+    overflow-x: hidden;
 
     #container {
         max-width: 900px;
@@ -236,69 +236,6 @@ body {
     }
 }
 
-@media screen and (max-width: 768px) {
-    body {
-        #container {
-
-            .ketQuaWrap {
-                display: flex;
-                justify-content: center;
-                margin: 30px auto;
-
-
-                .ketQuaCard {
-                    background: #fdfdfd;
-                    padding: 12px;
-                    border-radius: 16px;
-                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-                    text-align: center;
-                    width: 360px;
-                    animation: fadeIn 2s ease;
-
-
-                    .ketQuaTitle {
-                        font-size: 16px;
-                        font-weight: bold;
-                        color: #2e7d32; // xanh lá
-                        margin-bottom: 10px;
-                    }
-
-                    .ketQuaTen {
-                        font-size: 20px;
-                        font-weight: bold;
-                        color: #ff4081; // đỏ đậm
-
-
-                        .soDienThoai {
-                            color: #1976d2;
-                            text-decoration: none;
-                            font-size: 20px;
-                            margin-left: 4px;
-                            transition: color 0.3s;
-
-
-
-                            &:hover {
-                                color: #004ba0;
-                                text-decoration: underline;
-                            }
-                        }
-                    }
-
-                    .ngay {
-                        font-size: 16px;
-                        color: #2e7d32; // xanh lá
-                        margin-bottom: 10px;
-                        font-weight: 500;
-                    }
-                }
-            }
-
-
-
-        }
-    }
-}
 
 // Hiệu ứng tiêu đề
 @keyframes pulse {
