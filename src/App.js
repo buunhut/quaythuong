@@ -7,6 +7,7 @@ const App = () => {
   const [ketQua, setKetQua] = useState(null);
   const [textInput, setTextInput] = useState("");
   const [countdown, setCountdown] = useState(null); // Đếm ngược
+  // const [soDt, setSoDt] = useState("");
 
   const [form, setForm] = useState(false);
 
