@@ -7,7 +7,7 @@ const App = () => {
   const [ketQua, setKetQua] = useState(null);
   const [textInput, setTextInput] = useState("");
   const [countdown, setCountdown] = useState(null); // Đếm ngược
-  // const [soDt, setSoDt] = useState("");
+  const [soDt, setSoDt] = useState("");
 
   const [form, setForm] = useState(false);
 
@@ -201,7 +201,17 @@ const App = () => {
                 </>
               )}
             </div>
-            <input type="text" placeholder="Gõ Số điện thoại" />
+            <input
+              type="text"
+              placeholder="Gõ Số điện thoại"
+              value={soDt}
+              onChange={(e) => {
+                setSoDt(e.target.value.replace(/[^\d ]/g, ""));
+              }}
+              onBlur={() => {
+                setSoDt(soDt ? `📞 ${soDt}` : "");
+              }}
+            />
           </div>
         </div>
       )}
