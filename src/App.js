@@ -161,6 +161,9 @@ const App = () => {
             placeholder="Tên khách hàng"
             value={textInput}
             onChange={handleTextareaChange}
+            onBlur={() => {
+              setForm(false);
+            }}
           />
         </form>
       </div>
