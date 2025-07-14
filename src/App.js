@@ -203,7 +203,7 @@ const App = () => {
             </div>
             <input
               type="text"
-              placeholder="Gõ Số điện thoại"
+              placeholder="Số điện thoại"
               value={soDt}
               onChange={(e) => {
                 setSoDt(e.target.value.replace(/[^\d ]/g, ""));
