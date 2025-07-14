@@ -205,6 +205,7 @@ const App = () => {
               )}
             </div>
             <input
+              className="soDienThoai"
               type="text"
               placeholder="Số điện thoại"
               value={soDt}

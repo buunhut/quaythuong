@@ -183,36 +183,37 @@ body {
 
 
                 .ketQuaTitle {
-                    font-size: 20px;
+                    font-size: 28px;
                     font-weight: bold;
                     color: #2e7d32; // xanh lá
                     margin-bottom: 10px;
                 }
 
                 .ketQuaTen {
-                    font-size: 24px;
+                    font-size: 30px;
                     font-weight: bold;
                     color: #ff4081; // đỏ đậm
+                }
 
 
-                    .soDienThoai {
-                        color: #1976d2;
-                        text-decoration: none;
-                        font-size: 20px;
-                        margin-left: 4px;
-                        transition: color 0.3s;
+                .soDienThoai {
+                    color: #ff4081;
+                    text-decoration: none;
+                    font-size: 24px;
+                    margin-left: 4px;
+                    transition: color 0.3s;
 
 
 
-                        &:hover {
-                            color: #004ba0;
-                            text-decoration: underline;
-                        }
+                    &:hover {
+                        color: #004ba0;
+                        text-decoration: underline;
                     }
                 }
 
+
                 .ngay {
-                    font-size: 16px;
+                    font-size: 24px;
                     color: #2e7d32; // xanh lá
                     margin-bottom: 10px;
                     font-weight: 500;
