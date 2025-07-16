@@ -39,6 +39,7 @@ const App = () => {
       vma: "Vĩnh Mỹ A",
       vmb: "Vĩnh Mỹ B",
       a: "Anh",
+      xc: "Xóm Củi",
     };
 
     // Tạo regex bắt các từ bất kể viết hoa/thường
