@@ -150,6 +150,7 @@ const App = () => {
       >
         🎉 0919 317 710 🎉
       </h3>
+      <p>CHƯƠNG TRÌNH QUAY THƯỞNG</p>
 
       <div
         className="formWrap"
