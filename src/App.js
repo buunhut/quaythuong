@@ -136,7 +136,7 @@ const App = () => {
   // ✅ Quay số ngẫu nhiên + đếm ngược
   const quaySo = () => {
     if (listKhachHang.length === 0) {
-      alert("Vui lòng nhập danh sách khách hàng hợp lệ.");
+      // alert("Vui lòng nhập danh sách khách hàng hợp lệ.");
       return;
     }
 
