@@ -14,15 +14,50 @@ const App = () => {
   const [ky, setKy] = useState(new Date());
 
   //
+  // const autoScrollDownThenUp = (step = 1, delay = 14) => {
+  //   let scrollingDown = true;
+  //   let scrollTimer;
+
+  //   function scrollStep() {
+  //     if (scrollingDown) {
+  //       window.scrollBy(0, step);
+  //       const bottomReached =
+  //         window.scrollY + window.innerHeight >=
+  //         document.documentElement.scrollHeight;
+
+  //       if (bottomReached) {
+  //         clearInterval(scrollTimer);
+  //         setTimeout(() => {
+  //           scrollingDown = false;
+  //           scrollTimer = setInterval(scrollStep, delay);
+  //         }, 1000); // đợi 1s rồi bắt đầu cuộn lên
+  //       }
+  //     } else {
+  //       window.scrollBy(0, -step);
+  //       const topReached = window.scrollY <= 0;
+
+  //       if (topReached) {
+  //         clearInterval(scrollTimer);
+  //         setTimeout(() => {
+  //           quaySo(); // gọi hàm sau khi cuộn lên xong
+  //         }, 2000);
+  //       }
+  //     }
+  //   }
+
+  //   scrollTimer = setInterval(scrollStep, delay);
+  // };
+
   const autoScrollDownThenUp = (step = 1, delay = 14) => {
     let scrollingDown = true;
     let scrollTimer;
 
-    function scrollStep() {
+    const scrollStep = () => {
       if (scrollingDown) {
         window.scrollBy(0, step);
+
         const bottomReached =
-          window.scrollY + window.innerHeight >=
+          Math.ceil(window.scrollY + window.innerHeight) >=
           document.documentElement.scrollHeight;
 
         if (bottomReached) {
@@ -34,6 +69,7 @@ const App = () => {
         }
       } else {
         window.scrollBy(0, -step);
+
         const topReached = window.scrollY <= 0;
 
         if (topReached) {
@@ -43,7 +79,10 @@ const App = () => {
           }, 2000);
         }
       }
-    }
+    };
+
+    // Đảm bảo luôn bắt đầu từ trên đầu
+    window.scrollTo(0, 0);
 
     scrollTimer = setInterval(scrollStep, delay);
   };
