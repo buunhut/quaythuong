@@ -188,6 +188,7 @@ const App = () => {
       <div className="group">
         <p className="ct">Chương Trình Quay Thưởng - Tri Ân Khách Hàng</p>
       </div>
+      <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p>
       {/* <div>
         <p className="se">Tri Ân Khách Hàng</p>
       </div> */}
@@ -228,8 +229,9 @@ const App = () => {
       {ketQua && (
         <div className="ketQuaWrap">
           <div className="ketQuaCard">
-            <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p>
-            <div className="ketQuaTitle">🎊 Khách hàng trúng thưởng</div>
+            {/* <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p> */}
+            <p className="ketQuaTitle"> 🎊 Xin Chúc Mừng</p>
+            <div className="ketQuaTitle">❤️ Khách hàng trúng thưởng </div>
 
             <div className="ketQuaTen">
               🧑‍💼 {replaceShortCodes(ketQua.ten)}
@@ -264,6 +266,7 @@ const App = () => {
 
       {listKhachHang.length > 0 && !ketQua && (
         <div style={{ marginTop: "10px" }} className="content">
+          <h4>DANH SÁCH KHÁCH HÀNG THAM GIA QUAY THƯỞNG</h4>
           <table
             style={{
               margin: "auto",

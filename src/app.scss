@@ -52,6 +52,14 @@ body {
             }
         }
 
+        p.ngay {
+            font-size: 24px;
+            color: #2e7d32; // xanh lá
+            margin-bottom: 10px;
+            font-weight: 500;
+
+        }
+
 
 
 
@@ -159,6 +167,12 @@ body {
         .content {
             // padding: 10px;
             padding-bottom: 100px;
+
+            h4 {
+                margin-bottom: 20px;
+                font-size: 26px;
+                color: #009688;
+            }
 
             table {
                 width: 100%;
