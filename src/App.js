@@ -14,7 +14,7 @@ const App = () => {
   const [ky, setKy] = useState(new Date());
 
   //
-  const autoScrollDownThenUp = (step = 1, delay = 10) => {
+  const autoScrollDownThenUp = (step = 1, delay = 14) => {
     let scrollingDown = true;
     let scrollTimer;
 
@@ -40,7 +40,7 @@ const App = () => {
           clearInterval(scrollTimer);
           setTimeout(() => {
             quaySo(); // gọi hàm sau khi cuộn lên xong
-          }, 1000);
+          }, 2000);
         }
       }
     }
@@ -206,7 +206,7 @@ const App = () => {
             onBlur={() => {
               setForm(false);
 
-              autoScrollDownThenUp(1, 10);
+              autoScrollDownThenUp(1, 14);
             }}
           />
         </form>
