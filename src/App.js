@@ -13,6 +13,41 @@ const App = () => {
 
   const [ky, setKy] = useState(new Date());
 
+  //
+  const autoScrollDownThenUp = (step = 1, delay = 10) => {
+    let scrollingDown = true;
+    let scrollTimer;
+
+    function scrollStep() {
+      if (scrollingDown) {
+        window.scrollBy(0, step);
+        const bottomReached =
+          window.scrollY + window.innerHeight >=
+          document.documentElement.scrollHeight;
+
+        if (bottomReached) {
+          clearInterval(scrollTimer);
+          setTimeout(() => {
+            scrollingDown = false;
+            scrollTimer = setInterval(scrollStep, delay);
+          }, 1000); // đợi 1s rồi bắt đầu cuộn lên
+        }
+      } else {
+        window.scrollBy(0, -step);
+        const topReached = window.scrollY <= 0;
+
+        if (topReached) {
+          clearInterval(scrollTimer);
+          setTimeout(() => {
+            quaySo(); // gọi hàm sau khi cuộn lên xong
+          }, 1000);
+        }
+      }
+    }
+
+    scrollTimer = setInterval(scrollStep, delay);
+  };
+
   // ✅ Viết hoa chữ cái đầu mỗi từ
   const capitalizeWords = (str) => {
     return str
@@ -150,7 +185,12 @@ const App = () => {
       >
         🎉 0919 317 710 🎉
       </h3>
-      <p>CHƯƠNG TRÌNH QUAY THƯỞNG</p>
+      <div className="group">
+        <p className="ct">Chương Trình Quay Thưởng - Tri Ân Khách Hàng</p>
+      </div>
+      {/* <div>
+        <p className="se">Tri Ân Khách Hàng</p>
+      </div> */}
 
       <div
         className="formWrap"
@@ -165,6 +205,8 @@ const App = () => {
             onChange={handleTextareaChange}
             onBlur={() => {
               setForm(false);
+
+              autoScrollDownThenUp(1, 10);
             }}
           />
         </form>
@@ -178,9 +220,7 @@ const App = () => {
               {countdown}
             </button>
           ) : (
-            <button className="quay-btn" onClick={quaySo}>
-              🎯 Quay thưởng
-            </button>
+            <button className="quay-btn">🎯 Quay thưởng</button>
           )}
         </>
       )}
