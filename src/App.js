@@ -241,7 +241,7 @@ const App = () => {
       >
         <form action="">
           <textarea
-            placeholder="Tên khách hàng"
+            placeholder="Khách hàng tham gia quay thưởng"
             value={textInput}
             onChange={handleTextareaChange}
             onBlur={() => {
