@@ -13,41 +13,6 @@ const App = () => {
 
   const [ky, setKy] = useState(new Date());
 
-  //
-  // const autoScrollDownThenUp = (step = 1, delay = 14) => {
-  //   let scrollingDown = true;
-  //   let scrollTimer;
-
-  //   function scrollStep() {
-  //     if (scrollingDown) {
-  //       window.scrollBy(0, step);
-  //       const bottomReached =
-  //         window.scrollY + window.innerHeight >=
-  //         document.documentElement.scrollHeight;
-
-  //       if (bottomReached) {
-  //         clearInterval(scrollTimer);
-  //         setTimeout(() => {
-  //           scrollingDown = false;
-  //           scrollTimer = setInterval(scrollStep, delay);
-  //         }, 1000); // đợi 1s rồi bắt đầu cuộn lên
-  //       }
-  //     } else {
-  //       window.scrollBy(0, -step);
-  //       const topReached = window.scrollY <= 0;
-
-  //       if (topReached) {
-  //         clearInterval(scrollTimer);
-  //         setTimeout(() => {
-  //           quaySo(); // gọi hàm sau khi cuộn lên xong
-  //         }, 2000);
-  //       }
-  //     }
-  //   }
-
-  //   scrollTimer = setInterval(scrollStep, delay);
-  // };
-
   const autoScrollDownThenUp = (step = 1, delay = 14) => {
     let scrollingDown = true;
     let scrollTimer;
@@ -228,6 +193,7 @@ const App = () => {
       <div className="group">
         <p className="ct">Chương Trình Quay Thưởng - Tri Ân Khách Hàng</p>
       </div>
+
       <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p>
       {/* <div>
         <p className="se">Tri Ân Khách Hàng</p>
