@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <main id="main">
       <h1>Bách hóa Hân Hân</h1>
-      <p>Phục vụ tăng răng 😄</p>
+      <p>Phục vụ tận răng 😄</p>
       <p className="zalo-link">
         <a
           href="https://zalo.me/0919317710"
