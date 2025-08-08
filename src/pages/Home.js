@@ -19,7 +19,7 @@ const Home = () => {
       <div className="zalo-qr">
         <img src="./img/qrBhhh.jpg" alt="" />
       </div>
-      <button>Đăng ký thành viên</button>
+      <button type="button">Đăng ký thành viên</button>
     </main>
   );
 };
