@@ -54,8 +54,20 @@
         /* màu cam dịu để đồng bộ */
     }
 
+    .zalo-qr {
+        width: 220px;
+        height: 220px;
+        margin: 30px;
+        opacity: 0;
+        transform: translateY(100px);
+        animation: slideUp 1s ease-out forwards 0.9s; // delay 0.8s để xuất hiện sau <p>
+
+        img {
+            width: 100%;
+        }
+    }
+
     button {
-        margin-top: 30px;
         padding: 12px 28px;
         font-size: 1rem;
         font-weight: 600;
