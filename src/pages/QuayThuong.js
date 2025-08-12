@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as moment from "moment";
+import { NavLink } from "react-router-dom";
 
 const QuayThuong = () => {
   const [listKhachHang, setListKhachHang] = useState([]);
@@ -173,13 +174,15 @@ const QuayThuong = () => {
 
   return (
     <div style={{ textAlign: "center" }} id="container">
-      <h1
-        onClick={() => {
-          setForm(!form);
-        }}
-      >
-        🎉 Bách hóa HÂN HÂN 🎉
-      </h1>
+      <NavLink to={"/"}>
+        <h1
+          onClick={() => {
+            setForm(!form);
+          }}
+        >
+          🎉 Bách hóa HÂN HÂN 🎉
+        </h1>
+      </NavLink>
       <h3
         onClick={() => {
           setTextInput("");

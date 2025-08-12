@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./home.scss";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
     <main id="main">
       <h1>Bách hóa Hân Hân</h1>
-      <p>Giao hàng tận nơi, tiện lợi và an toàn 😄</p>
+      <p>
+        Giao hàng tận nơi, tiện lợi và an toàn{" "}
+        <NavLink to={"quay-thuong"}>😄</NavLink>
+      </p>
       <p className="zalo-link">
         <a
           href="https://zalo.me/3569852425617577963"
