@@ -56,7 +56,7 @@ const Winner = () => {
           </main>
         </div>
         <div className="content">
-          <h2>KHÁCH HÀNG TRÚNG THƯỜNG</h2>
+          <h2>KHÁCH HÀNG TRÚNG THƯỞNG</h2>
           <table>
             <thead>
               <tr>
