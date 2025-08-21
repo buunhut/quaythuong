@@ -1,9 +1,31 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { updateListWinner } from "../redux/dataSlice";
+import moment from "moment";
 
 const Winner = () => {
+  const dispatch = useDispatch();
   const { listWinner } = useSelector((state) => state.dataSlice);
+
+  const fetchListWinner = async () => {
+    const result = await axios({
+      url: "https://api.nodejs.edu.vn/nodejs/contact",
+      method: "get",
+    }).then((res) => res.data.content);
+
+    if (result.length > 0) {
+      const filterData = result.filter(
+        (item) => item.yourEmail === "hhquayThuong@buulap.com"
+      );
+
+      dispatch(updateListWinner(filterData));
+    }
+  };
+  useEffect(() => {
+    fetchListWinner();
+  }, []);
   return (
     <div className="body">
       <div id="winner">
@@ -42,15 +64,27 @@ const Winner = () => {
               </tr>
             </thead>
             <tbody>
-              {listWinner?.map((item, index) => {
-                const { ngay, ten } = item;
-                return (
-                  <tr key={index}>
-                    <td>{ngay}</td>
-                    <td>{ten}</td>
-                  </tr>
-                );
-              })}
+              {listWinner
+                ?.slice() // copy mảng để tránh mutate
+                .sort(
+                  (a, b) => new Date(b.contactTime) - new Date(a.contactTime)
+                ) // sắp xếp mới -> cũ
+                .map((item, index) => {
+                  const {
+                    contactTime: ngay,
+                    yourName: ten,
+                    textMessage: soDt,
+                  } = item;
+                  return (
+                    <tr key={index}>
+                      <td>{moment(ngay).format("DD/MM/YYYY")}</td>
+                      <td>
+                        <p>{ten}</p>
+                        <span>{soDt}</span>
+                      </td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>

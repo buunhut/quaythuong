@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as moment from "moment";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const QuayThuong = () => {
   const [listKhachHang, setListKhachHang] = useState([]);
@@ -163,14 +164,27 @@ const QuayThuong = () => {
 
   // ✅ Khởi động: lấy từ localStorage
   useEffect(() => {
-    // const savedText = localStorage.getItem("textInput");
-    // if (savedText) {
-    //   setTextInput(savedText);
-    //   parseKhachHangFromTextArea(savedText);
-    // }
     localStorage.removeItem("textInput");
     window.document.title = "Quay Thưởng";
   }, []);
+
+  const postDataToBackEnd = async () => {
+    if (!ketQua?.ten) return;
+    const currentTime = new Date().toISOString();
+    const dataPost = {
+      yourName: ketQua?.ten,
+      textMessage: soDt,
+      contactTime: currentTime,
+      yourEmail: "hhquayThuong@buulap.com",
+    };
+    console.log("send to BE", dataPost);
+
+    const result = await axios({
+      url: "https://api.nodejs.edu.vn/nodejs/contact",
+      method: "post",
+      data: dataPost,
+    }).then((res) => res.data.content);
+  };
 
   return (
     <div style={{ textAlign: "center" }} id="container">
@@ -267,6 +281,7 @@ const QuayThuong = () => {
               }}
               onBlur={() => {
                 setSoDt(soDt ? `📞 ${soDt}` : "");
+                postDataToBackEnd();
               }}
             />
           </div>
