@@ -38,10 +38,10 @@ const Home = () => {
         <img src="./img/qrBhhh.jpg" alt="" />
       </div>
       <button type="button">
-        {path === "/" ? (
-          <NavLink to={"/winner"}>👀 Khách hàng trúng thưởng</NavLink>
-        ) : (
+        {path === "/winner" ? (
           <NavLink to={"/"}>🏠 Trang chủ</NavLink>
+        ) : (
+          <NavLink to={"/winner"}>👀 Khách hàng trúng thưởng</NavLink>
         )}
       </button>
     </main>
