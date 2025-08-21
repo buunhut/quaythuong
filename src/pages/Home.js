@@ -1,8 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./home.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 const Home = () => {
+  const getUserId = () => {
+    let userId = localStorage.getItem("user_id");
+    if (!userId) {
+      userId = uuidv4();
+      localStorage.setItem("user_id", userId);
+    }
+    // console.log(userId);
+  };
+
+  getUserId();
+
+  const path = window.location.pathname;
+
   return (
     <main id="main">
       <h1>Bách hóa Hân Hân</h1>
@@ -23,7 +37,13 @@ const Home = () => {
       <div className="zalo-qr">
         <img src="./img/qrBhhh.jpg" alt="" />
       </div>
-      <button type="button">Đăng ký thành viên</button>
+      <button type="button">
+        {path === "/" ? (
+          <NavLink to={"/winner"}>👀 Khách hàng trúng thưởng</NavLink>
+        ) : (
+          <NavLink to={"/"}>🏠 Trang chủ</NavLink>
+        )}
+      </button>
     </main>
   );
 };

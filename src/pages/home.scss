@@ -1,101 +1,203 @@
-#main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    // gap: 20px;
-    /* Background gradient tối chuyển động */
+body {
     background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1b2735);
     background-size: 400% 400%;
-    animation: bgMove 15s ease infinite;
 
-    h1,
-    p {
-        margin-top: 10px;
-        opacity: 0;
-        transform: translateY(100px);
-        animation: slideUp 1s ease-out forwards;
+    #main {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        // gap: 20px;
+        /* Background gradient tối chuyển động */
+        // background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1b2735);
+        // background-size: 400% 400%;
+        animation: bgMove 15s ease infinite;
 
+        h1,
+        p {
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: slideUp 1s ease-out forwards;
 
-        &.zalo-link {
             a {
-                color: #25a5f7;
-                font-weight: 600;
                 text-decoration: none;
-                transition: color 0.3s ease;
+            }
 
-                &:hover {
-                    color: #1282c6;
+
+            &.zalo-link {
+                a {
+                    color: #25a5f7;
+                    font-weight: 600;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: #1282c6;
+                    }
                 }
+            }
+        }
+
+        h1 {
+            animation-delay: 0.2s;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ff7a18, #af002d, #ff7a18);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation:
+                slideUp 1s ease-out forwards 0.2s,
+                textGradient 5s ease infinite;
+        }
+
+        p {
+            animation-delay: 0.6s;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #ff7a18;
+            /* màu cam dịu để đồng bộ */
+        }
+
+        .zalo-qr {
+            width: 280px;
+            height: 280px;
+            margin: 30px;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: slideUp 1s ease-out forwards 0.9s; // delay 0.8s để xuất hiện sau <p>
+
+            img {
+                width: 100%;
+            }
+        }
+
+        button {
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: linear-gradient(270deg, #ff7a18, #af002d, #ff7a18);
+            background-size: 600% 600%;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(100px);
+            animation:
+                slideUp 1s ease-out forwards 1s,
+                gradientMove 5s ease infinite;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            &:active {
+                transform: translateY(0);
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            a {
+                text-decoration: none;
+                color: #fff;
+
             }
         }
     }
 
-    h1 {
-        animation-delay: 0.2s;
-        font-size: 2.5rem;
-        font-weight: 800;
-        background: linear-gradient(90deg, #ff7a18, #af002d, #ff7a18);
-        background-size: 300% 300%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation:
-            slideUp 1s ease-out forwards 0.2s,
-            textGradient 5s ease infinite;
-    }
+    #winner {
+        display: flex;
 
-    p {
-        animation-delay: 0.6s;
-        font-size: 1.4rem;
-        font-weight: 500;
-        color: #ff7a18;
-        /* màu cam dịu để đồng bộ */
-    }
 
-    .zalo-qr {
-        width: 280px;
-        height: 280px;
-        margin: 30px;
-        opacity: 0;
-        transform: translateY(100px);
-        animation: slideUp 1s ease-out forwards 0.9s; // delay 0.8s để xuất hiện sau <p>
-
-        img {
-            width: 100%;
-        }
-    }
-
-    button {
-        padding: 12px 28px;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #fff;
-        background: linear-gradient(270deg, #ff7a18, #af002d, #ff7a18);
-        background-size: 600% 600%;
-        border: none;
-        border-radius: 999px;
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        opacity: 0;
-        transform: translateY(100px);
-        animation:
-            slideUp 1s ease-out forwards 1s,
-            gradientMove 5s ease infinite;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
-        &:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        .left {
+            // width: 400px;
         }
 
-        &:active {
-            transform: translateY(0);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        .content {
+            padding: 20px;
+            // max-width: 600px;
+            height: calc(100vh - 60px);
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            align-items: center;
+            animation:
+                slideUp 2s ease-out forwards 0.2s,
+                textGradient 5s ease infinite;
+
+            overflow-y: scroll;
+
+
+
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: #3498db;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                overflow: hidden;
+                border-radius: 8px;
+
+                thead {
+                    background: #3498db;
+                    color: #fff;
+
+                    td {
+                        font-weight: 600;
+                        padding: 12px;
+                        text-align: center;
+                    }
+                }
+
+                tbody {
+                    tr {
+                        // transition: background 0.2s ease;
+
+                        &:nth-child(even) {
+                            background: #f9f9f9;
+                        }
+
+                        &:hover {
+                            background: #ecf0f1;
+                        }
+
+                        td {
+                            padding: 12px 6px;
+                            // text-align: center;
+                            color: #333;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    #winner {
+        flex-direction: column-reverse;
+        ;
+    }
+
+}
+
 
 @keyframes slideUp {
     from {
