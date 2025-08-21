@@ -9,6 +9,7 @@ const QuayThuong = () => {
   const [textInput, setTextInput] = useState("");
   const [countdown, setCountdown] = useState(null); // Đếm ngược
   const [soDt, setSoDt] = useState("");
+  const [hideMouse, setHideMouse] = useState(false);
 
   const [form, setForm] = useState(false);
 
@@ -155,6 +156,7 @@ const QuayThuong = () => {
           clearInterval(interval);
           const index = Math.floor(Math.random() * listKhachHang.length);
           setKetQua(listKhachHang[index]);
+          setHideMouse(false);
           return null;
         }
         return prev - 1;
@@ -177,7 +179,7 @@ const QuayThuong = () => {
       contactTime: currentTime,
       yourEmail: "hhquayThuong@buulap.com",
     };
-    console.log("send to BE", dataPost);
+    // console.log("send to BE", dataPost);
 
     const result = await axios({
       url: "https://api.nodejs.edu.vn/nodejs/contact",
@@ -187,140 +189,148 @@ const QuayThuong = () => {
   };
 
   return (
-    <div style={{ textAlign: "center" }} id="container">
-      <NavLink to={"/"}>
-        <h1
+    <div style={{ cursor: hideMouse ? "none" : "" }}>
+      <div style={{ textAlign: "center" }} id="container">
+        <NavLink to={"/"}>
+          <h1
+            onClick={() => {
+              setForm(!form);
+            }}
+          >
+            🎉 Bách hóa HÂN HÂN 🎉
+          </h1>
+        </NavLink>
+        <h3
           onClick={() => {
-            setForm(!form);
+            setTextInput("");
+            localStorage.removeItem("textInput");
+            setListKhachHang([]);
+            setKetQua(null);
           }}
         >
-          🎉 Bách hóa HÂN HÂN 🎉
-        </h1>
-      </NavLink>
-      <h3
-        onClick={() => {
-          setTextInput("");
-          localStorage.removeItem("textInput");
-          setListKhachHang([]);
-          setKetQua(null);
-        }}
-      >
-        🎉 0919 317 710 🎉
-      </h3>
-      <div className="group">
-        <p className="ct">Chương Trình Quay Thưởng - Tri Ân Khách Hàng</p>
-      </div>
+          🎉 0919 317 710 🎉
+        </h3>
+        <div className="group">
+          <p className="ct">Chương Trình Quay Thưởng - Tri Ân Khách Hàng</p>
+        </div>
 
-      <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p>
-      {/* <div>
+        <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p>
+        {/* <div>
           <p className="se">Tri Ân Khách Hàng</p>
         </div> */}
 
-      <div
-        className="formWrap"
-        style={{
-          height: ketQua ? 0 : form ? "220px" : textInput === "" ? "220px" : 0,
-        }}
-      >
-        <form action="">
-          <textarea
-            placeholder="Khách hàng tham gia quay thưởng"
-            value={textInput}
-            onChange={handleTextareaChange}
-            onBlur={() => {
-              setForm(false);
-
-              autoScrollDownThenUp(1, 14);
-            }}
-          />
-        </form>
-      </div>
-
-      {listKhachHang.length > 0 && !ketQua && (
-        <>
-          {countdown !== null ? (
-            <button className="quay-btn" disabled>
-              <span className="spinner" />
-              {countdown}
-            </button>
-          ) : (
-            <button className="quay-btn">🎯 Quay thưởng</button>
-          )}
-        </>
-      )}
-
-      {ketQua && (
-        <div className="ketQuaWrap">
-          <div className="ketQuaCard">
-            {/* <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p> */}
-            <p className="ketQuaTitle"> 🎊 Xin Chúc Mừng</p>
-            <div className="ketQuaTitle">❤️ Khách hàng trúng thưởng </div>
-
-            <div className="ketQuaTen">
-              🧑‍💼 {replaceShortCodes(ketQua.ten)}
-              {ketQua.soDienThoai !== "-" && (
-                <>
-                  –{" "}
-                  <a
-                    href={`tel:${ketQua.soDienThoai}`}
-                    title={`Gọi cho khách hàng ${ketQua.ten}`}
-                    className="soDienThoai"
-                  >
-                    📞 {ketQua.soDienThoai}
-                  </a>
-                </>
-              )}
-            </div>
-            <input
-              className="soDienThoai"
-              type="text"
-              placeholder="Số điện thoại"
-              value={soDt}
-              onChange={(e) => {
-                setSoDt(e.target.value.replace(/[^\d ]/g, ""));
-              }}
+        <div
+          className="formWrap"
+          style={{
+            height: ketQua
+              ? 0
+              : form
+              ? "220px"
+              : textInput === ""
+              ? "220px"
+              : 0,
+          }}
+        >
+          <form action="">
+            <textarea
+              placeholder="Khách hàng tham gia quay thưởng"
+              value={textInput}
+              onChange={handleTextareaChange}
               onBlur={() => {
-                setSoDt(soDt ? `📞 ${soDt}` : "");
-                postDataToBackEnd();
+                setForm(false);
+
+                autoScrollDownThenUp(1, 14);
+                setHideMouse(true);
               }}
             />
-          </div>
+          </form>
         </div>
-      )}
 
-      {listKhachHang.length > 0 && !ketQua && (
-        <div style={{ marginTop: "10px" }} className="content">
-          <h4>DANH SÁCH KHÁCH HÀNG THAM GIA QUAY THƯỞNG</h4>
-          <table
-            style={{
-              margin: "auto",
-              borderCollapse: "collapse",
-              width: "100%",
-            }}
-          >
-            <thead>
-              <tr>
-                <th
-                  style={{
-                    border: "1px solid #009688",
-                    padding: "8px",
-                    backgroundColor: "#009688",
-                    color: "white",
-                  }}
-                >
-                  #
-                </th>
-                <th
-                  style={{
-                    border: "1px solid #009688",
-                    padding: "8px",
-                    backgroundColor: "#009688",
-                    color: "white",
-                  }}
-                >
-                  Tên khách hàng
-                </th>
-                {/* <th
+        {listKhachHang.length > 0 && !ketQua && (
+          <>
+            {countdown !== null ? (
+              <button className="quay-btn" disabled>
+                <span className="spinner" />
+                {countdown}
+              </button>
+            ) : (
+              <button className="quay-btn">🎯 Quay thưởng</button>
+            )}
+          </>
+        )}
+
+        {ketQua && (
+          <div className="ketQuaWrap">
+            <div className="ketQuaCard">
+              {/* <p className="ngay">📅 {moment(ky).format("DD/MM/YYYY")}</p> */}
+              <p className="ketQuaTitle"> 🎊 Xin Chúc Mừng</p>
+              <div className="ketQuaTitle">❤️ Khách hàng trúng thưởng </div>
+
+              <div className="ketQuaTen">
+                🧑‍💼 {replaceShortCodes(ketQua.ten)}
+                {ketQua.soDienThoai !== "-" && (
+                  <>
+                    –{" "}
+                    <a
+                      href={`tel:${ketQua.soDienThoai}`}
+                      title={`Gọi cho khách hàng ${ketQua.ten}`}
+                      className="soDienThoai"
+                    >
+                      📞 {ketQua.soDienThoai}
+                    </a>
+                  </>
+                )}
+              </div>
+              <input
+                className="soDienThoai"
+                type="text"
+                placeholder="Số điện thoại"
+                value={soDt}
+                onChange={(e) => {
+                  setSoDt(e.target.value.replace(/[^\d ]/g, ""));
+                }}
+                onBlur={() => {
+                  setSoDt(soDt ? `📞 ${soDt}` : "");
+                  postDataToBackEnd();
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+        {listKhachHang.length > 0 && !ketQua && (
+          <div style={{ marginTop: "10px" }} className="content">
+            <h4>DANH SÁCH KHÁCH HÀNG THAM GIA QUAY THƯỞNG</h4>
+            <table
+              style={{
+                margin: "auto",
+                borderCollapse: "collapse",
+                width: "100%",
+              }}
+            >
+              <thead>
+                <tr>
+                  <th
+                    style={{
+                      border: "1px solid #009688",
+                      padding: "8px",
+                      backgroundColor: "#009688",
+                      color: "white",
+                    }}
+                  >
+                    #
+                  </th>
+                  <th
+                    style={{
+                      border: "1px solid #009688",
+                      padding: "8px",
+                      backgroundColor: "#009688",
+                      color: "white",
+                    }}
+                  >
+                    Tên khách hàng
+                  </th>
+                  {/* <th
                     style={{
                       border: "1px solid #009688",
                       padding: "8px",
@@ -330,36 +340,37 @@ const QuayThuong = () => {
                   >
                     Số điện thoại
                   </th> */}
-              </tr>
-            </thead>
-            <tbody>
-              {listKhachHang.map((item, index) => (
-                <tr
-                  key={index}
-                  style={{
-                    backgroundColor: item.ten === ketQua?.ten ? "#ff4081" : "",
-                  }}
-                >
-                  <td
+                </tr>
+              </thead>
+              <tbody>
+                {listKhachHang.map((item, index) => (
+                  <tr
+                    key={index}
                     style={{
-                      // border: "1px solid #009688",
-                      padding: "10px 8px",
-                      color: item.ten === ketQua?.ten ? "white" : "#009688",
+                      backgroundColor:
+                        item.ten === ketQua?.ten ? "#ff4081" : "",
                     }}
                   >
-                    {index + 1}
-                  </td>
-                  <td
-                    style={{
-                      // border: "1px solid #009688",
-                      padding: "10px 8px",
-                      color: item.ten === ketQua?.ten ? "white" : "#009688",
-                      textAlign: "left",
-                    }}
-                  >
-                    {replaceShortCodes(item.ten)}
-                  </td>
-                  {/* <td
+                    <td
+                      style={{
+                        // border: "1px solid #009688",
+                        padding: "10px 8px",
+                        color: item.ten === ketQua?.ten ? "white" : "#009688",
+                      }}
+                    >
+                      {index + 1}
+                    </td>
+                    <td
+                      style={{
+                        // border: "1px solid #009688",
+                        padding: "10px 8px",
+                        color: item.ten === ketQua?.ten ? "white" : "#009688",
+                        textAlign: "left",
+                      }}
+                    >
+                      {replaceShortCodes(item.ten)}
+                    </td>
+                    {/* <td
                       style={{
                         // border: "1px solid #009688",
                         padding: "10px 8px",
@@ -368,12 +379,13 @@ const QuayThuong = () => {
                     >
                       {item.soDienThoai}
                     </td> */}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
