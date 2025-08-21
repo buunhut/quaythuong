@@ -3,6 +3,46 @@ import * as moment from "moment";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
+export const replaceShortCodes = (text) => {
+  const replacements = {
+    cd: "Cây Dương",
+    nmkn: "Nhà Máy Kim Nguyên",
+    đ1: "Đồng 1",
+    hme: "Hàng Me",
+    cn: "Chệt Niêu",
+    bđ: "Bưu Điện",
+    bd: "Bưu Điện",
+    nt: "Nhà Thờ",
+    ak: "An Khoa",
+    xl: "Xóm Lung",
+    lt: "Láng Tròn",
+    vma: "Vĩnh Mỹ A",
+    vmb: "Vĩnh Mỹ B",
+    // a: "Anh",
+    xc: "Xóm Củi",
+    lg: "Lò Gạch",
+  };
+
+  // Tạo regex bắt các từ bất kể viết hoa/thường
+  const keys = Object.keys(replacements).sort((a, b) => b.length - a.length);
+  const pattern = keys
+    .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+    .join("|");
+  const regex = new RegExp(`(^|\\s)(${pattern})(?=\\s|$)`, "gi");
+
+  return text.replace(regex, (match, space, code) => {
+    // Chuẩn hóa: "Đ" → "đ", loại dấu
+    const normalizedCode = code
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace("Đ", "đ")
+      .toLowerCase();
+
+    const replacement = replacements[normalizedCode] || code;
+    return `${space}${replacement}`;
+  });
+};
+
 const QuayThuong = () => {
   const [listKhachHang, setListKhachHang] = useState([]);
   const [ketQua, setKetQua] = useState(null);
@@ -66,22 +106,22 @@ const QuayThuong = () => {
 
   const replaceShortCodes = (text) => {
     const replacements = {
-      // cd: "Cây Dương",
-      // nmkn: "Nhà Máy Kim Nguyên",
-      // đ1: "Đồng 1",
-      // hme: "Hàng Me",
-      // cn: "Chệt Niêu",
-      // bđ: "Bưu Điện",
-      // bd: "Bưu Điện",
-      // nt: "Nhà Thờ",
-      // ak: "An Khoa",
-      // xl: "Xóm Lung",
-      // lt: "Láng Tròn",
-      // vma: "Vĩnh Mỹ A",
-      // vmb: "Vĩnh Mỹ B",
+      cd: "Cây Dương",
+      nmkn: "Nhà Máy Kim Nguyên",
+      đ1: "Đồng 1",
+      hme: "Hàng Me",
+      cn: "Chệt Niêu",
+      bđ: "Bưu Điện",
+      bd: "Bưu Điện",
+      nt: "Nhà Thờ",
+      ak: "An Khoa",
+      xl: "Xóm Lung",
+      lt: "Láng Tròn",
+      vma: "Vĩnh Mỹ A",
+      vmb: "Vĩnh Mỹ B",
       // a: "Anh",
-      // xc: "Xóm Củi",
-      // lg: "Lò Gạch",
+      xc: "Xóm Củi",
+      lg: "Lò Gạch",
     };
 
     // Tạo regex bắt các từ bất kể viết hoa/thường

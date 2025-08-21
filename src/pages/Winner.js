@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { updateListWinner } from "../redux/dataSlice";
 import moment from "moment";
+import { replaceShortCodes } from "./QuayThuong";
 
 const Winner = () => {
   const dispatch = useDispatch();
@@ -79,7 +80,7 @@ const Winner = () => {
                     <tr key={index}>
                       <td>{moment(ngay).format("DD/MM/YYYY")}</td>
                       <td>
-                        <p>{ten}</p>
+                        <p>{replaceShortCodes(ten)}</p>
                         <span>{soDt}</span>
                       </td>
                     </tr>
