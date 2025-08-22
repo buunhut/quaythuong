@@ -8,6 +8,7 @@ export const replaceShortCodes = (text) => {
     cd: "Cây Dương",
     nmkn: "Nhà Máy Kim Nguyên",
     đ1: "Đồng 1",
+    Đ1: "Đồng 1",
     hme: "Hàng Me",
     cn: "Chệt Niêu",
     bđ: "Bưu Điện",
@@ -104,45 +105,46 @@ const QuayThuong = () => {
       .join(" ");
   };
 
-  const replaceShortCodes = (text) => {
-    const replacements = {
-      cd: "Cây Dương",
-      nmkn: "Nhà Máy Kim Nguyên",
-      đ1: "Đồng 1",
-      hme: "Hàng Me",
-      cn: "Chệt Niêu",
-      bđ: "Bưu Điện",
-      bd: "Bưu Điện",
-      nt: "Nhà Thờ",
-      ak: "An Khoa",
-      xl: "Xóm Lung",
-      lt: "Láng Tròn",
-      vma: "Vĩnh Mỹ A",
-      vmb: "Vĩnh Mỹ B",
-      // a: "Anh",
-      xc: "Xóm Củi",
-      lg: "Lò Gạch",
-    };
+  // const replaceShortCodes = (text) => {
+  //   const replacements = {
+  //     cd: "Cây Dương",
+  //     nmkn: "Nhà Máy Kim Nguyên",
+  //     đ1: "Đồng 1",
+  //     Đ1: "Đồng 1",
+  //     hme: "Hàng Me",
+  //     cn: "Chệt Niêu",
+  //     bđ: "Bưu Điện",
+  //     bd: "Bưu Điện",
+  //     nt: "Nhà Thờ",
+  //     ak: "An Khoa",
+  //     xl: "Xóm Lung",
+  //     lt: "Láng Tròn",
+  //     vma: "Vĩnh Mỹ A",
+  //     vmb: "Vĩnh Mỹ B",
+  //     // a: "Anh",
+  //     xc: "Xóm Củi",
+  //     lg: "Lò Gạch",
+  //   };
 
-    // Tạo regex bắt các từ bất kể viết hoa/thường
-    const keys = Object.keys(replacements).sort((a, b) => b.length - a.length);
-    const pattern = keys
-      .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
-      .join("|");
-    const regex = new RegExp(`(^|\\s)(${pattern})(?=\\s|$)`, "gi");
+  //   // Tạo regex bắt các từ bất kể viết hoa/thường
+  //   const keys = Object.keys(replacements).sort((a, b) => b.length - a.length);
+  //   const pattern = keys
+  //     .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+  //     .join("|");
+  //   const regex = new RegExp(`(^|\\s)(${pattern})(?=\\s|$)`, "gi");
 
-    return text.replace(regex, (match, space, code) => {
-      // Chuẩn hóa: "Đ" → "đ", loại dấu
-      const normalizedCode = code
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace("Đ", "đ")
-        .toLowerCase();
+  //   return text.replace(regex, (match, space, code) => {
+  //     // Chuẩn hóa: "Đ" → "đ", loại dấu
+  //     const normalizedCode = code
+  //       .normalize("NFD")
+  //       .replace(/[\u0300-\u036f]/g, "")
+  //       // .replace("Đ", "đ")
+  //       .toLowerCase();
 
-      const replacement = replacements[normalizedCode] || code;
-      return `${space}${replacement}`;
-    });
-  };
+  //     const replacement = replacements[normalizedCode] || code;
+  //     return `${space}${replacement}`;
+  //   });
+  // };
 
   // ✅ Parse dữ liệu textarea
 
@@ -161,7 +163,7 @@ const QuayThuong = () => {
         soDienThoai = parts.pop();
       }
 
-      const ten = capitalizeWords(parts.join(" "));
+      const ten = parts.join(" ");
 
       if (ten) {
         result.push({ ten, soDienThoai });
